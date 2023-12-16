@@ -5,18 +5,20 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { TLoginSchema, loginSchema } from "@/app/lib/types";
 
 import BaseCard from '../../components/cards/BaseCard'
+import { login } from "@/app/utils/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 const Login = () => {
     const { register, handleSubmit, watch, formState: { errors, isSubmitting }, reset, setError, } = useForm<TLoginSchema>({ resolver: zodResolver(loginSchema), });
     const onSubmit: SubmitHandler<TLoginSchema> = async data => {
-        console.log(data);
+        const response = await login(data)
+        console.log(response)
     };
 
     return (
         <div className='w-1/4 flex justify-center items-center h-screen mx-auto'>
 
-            <BaseCard title='Login Form'>
+            <BaseCard title='Login'>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Input size='sm' variant='bordered' type="email" label="Email" className='mb-4'
                         {...register("email")}
@@ -30,7 +32,7 @@ const Login = () => {
                     {errors.password && (
                         <p className="text-red-500 mb-4">{`${errors.password.message}`}</p>
                     )}
-                    <Button type="submit" color='primary'
+                    <Button type="submit" color='primary' spinnerPlacement='end'
                         variant={'bordered'}
                         disableRipple
                         isLoading={isSubmitting}

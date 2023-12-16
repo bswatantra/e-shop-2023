@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const https = axios.create({
-    baseURL: process.env.BASE_URL,
+    baseURL: process.env.API_BASE_URL,
     timeout: 5000,
 });
 

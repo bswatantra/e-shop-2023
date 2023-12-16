@@ -1,11 +1,10 @@
 import { Button } from '@nextui-org/button'
 import Image from 'next/image'
+import ProductList from './components/products/ProductList'
 export default function Home() {
   return (
     <main>
-      <Button color="primary" variant="bordered" isLoading>
-        Submit
-      </Button>
+      <ProductList />
     </main>
   )
 }

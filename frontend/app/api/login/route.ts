@@ -8,6 +8,7 @@ export async function POST() {
         return NextResponse.json(response);
     } catch (error: any) {
         console.error(error);
+        return error
     } finally {
         console.log('finally');
     }
