@@ -2,15 +2,15 @@ import { Avatar, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Input, N
 
 import Link from 'next/link'
 import React from 'react'
+import ThemeSwitcher from "./ThemeSwitcher"
 
 const Navbar = () => {
     return (
-        <Nav isBordered>
+        <Nav maxWidth="xl">
             <NavbarContent justify="start">
                 <NavbarBrand className="mr-4">
                     {/* <AcmeLogo /> */}
-                    {'logo'}
-                    <p className="hidden sm:block font-bold text-inherit">ACME</p>
+                    <p className="hidden sm:block font-bold text-inherit">e-Shop</p>
                 </NavbarBrand>
                 <NavbarContent className="hidden sm:flex gap-3">
                     <NavbarItem>
@@ -32,6 +32,7 @@ const Navbar = () => {
             </NavbarContent>
 
             <NavbarContent as="div" className="items-center" justify="end">
+                <ThemeSwitcher/>
                 <Input
                     classNames={{
                         base: "max-w-full sm:max-w-[10rem] h-10",
