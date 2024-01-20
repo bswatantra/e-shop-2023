@@ -16,7 +16,7 @@ const Login = () => {
     };
 
     return (
-        <div className='w-1/4 flex justify-center items-center h-screen mx-auto'>
+        <div className='w-1/2 flex justify-center items-center py-60 mx-auto'>
 
             <BaseCard title='Login'>
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -32,7 +32,7 @@ const Login = () => {
                     {errors.password && (
                         <p className="text-red-500 mb-4">{`${errors.password.message}`}</p>
                     )}
-                    <Button type="submit" color='primary' spinnerPlacement='end'
+                    <Button type="submit" color='primary' spinnerPlacement='end' className="mt-2"
                         variant={'bordered'}
                         disableRipple
                         isLoading={isSubmitting}

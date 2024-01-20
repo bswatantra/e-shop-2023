@@ -3,6 +3,7 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import type { Metadata } from 'next'
 import Navbar from './components/Navbar'
+import NextTopLoader from 'nextjs-toploader';
 import { Providers } from './providers/Providers'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -21,6 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <NextTopLoader />
         <Providers>
           <Navbar />
           <div className='mx-auto max-w-2xl px-4x sm:px-6 lg:max-w-7xl lg:px-8'>
