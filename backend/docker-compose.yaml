@@ -1,0 +1,33 @@
+version: "3.4"
+
+networks:
+  e-shop:
+    external: true
+
+services:
+  voucher_code_service:
+    container_name: e-shop
+    image: e_shop
+    build:
+      context: .
+      network: host
+    # ports:
+    #   - 8282:8282
+    # command: composer install
+    volumes:
+      - .:/var/www/html
+    working_dir: /var/www/html
+    networks:
+      - e-shop
+
+  e_shop_pgsql:
+    container_name: e_shop_pgsql
+    image: postgres:14.6
+    ports:
+      - 5431:5432
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=eshop
+    networks:
+      - e-shop
